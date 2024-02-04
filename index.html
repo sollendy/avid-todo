@@ -9,16 +9,16 @@
 </head>
 <body class="bg-dark text-light">
     <div class="d-flex flex-column align-items-center" id="app">
-        <ul class="d-flex flex-column align-items-center pt-2" id="lista">
+        <ul class="d-flex flex-column align-items-center gap-2 pt-2" id="lista">
             <h1 class="">Le mie commissioni</h1>
             <li v-for="(todo, index) in agenda" :style="todo.done == true ? {textDecoration: 'line-through', color: 'red'} : {} ">
-                {{agenda[index].text}} <span @click="deleteLi(index)">&cross;</span> <span @click="doneLi(index)">&check;;</span>
+                {{agenda[index].text}} <button class="border bg-transparent rounded-circle border-danger text-danger" @click="deleteLi(index)">&cross;</button> <button class="border bg-transparent rounded-circle border-success text-success" @click="doneLi(index)">&check;</button>;
             </li>
         </ul>
         <hr class="py-1">
         <div id="input-cnt">
             <input @keyup.enter="addLi()" v-model="newLi" type="text" placeholder="aggiungi commissione">
-            <button @click="addLi()">inserisci</button>
+            <button class="ms-1" @click="addLi()">inserisci</button>
         </div>
     </div>
 
